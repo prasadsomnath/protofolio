@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom global styles */
+html {
+  scroll-behavior: smooth;
+}
+
+button:focus-visible {
+  outline: 2px solid #3b82f6; /* blue focus outline */
+  outline-offset: 2px;
+}
+body {
+  background-color: #d3dff1; /* Soft blue, matches Tailwind's bg-blue-50 */
+}
+.dark body {
+  background-color: #18181b; /* Tailwind's bg-gray-900 for dark mode */
+}
+/* ...existing code... */
+.hide-scrollbar {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE 10+ */
+}
+.hide-scrollbar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+/* ...existing code... */
