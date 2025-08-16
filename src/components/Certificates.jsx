@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import udemyLogo from '../assets/images/udemy.png';
+import skyllxLogo from '../assets/images/skyllx.jpeg';
 
 // Demo certificate data — TODO: Replace with your real certifications
 const CERTIFICATES = [
@@ -8,7 +10,7 @@ const CERTIFICATES = [
     title: "Java Data Staracture Algorithem  MasterClass",
     authority: "Udemy",
     date: "Jul 2025",
-    image: 'http://localhost:5173/images/udemy.png', // Replace with actual image URL
+    image: udemyLogo,
     link: "https://www.udemy.com/certificate/UC-c6b1c229-2268-4371-91ba-fd3ccc3b1983/", // TODO: Add link to credential or PDF if available
     description: "In-depth course on Java data structures and algorithms, covering arrays, linked lists, trees, and more.",
   },
@@ -17,7 +19,7 @@ const CERTIFICATES = [
     title: "Hands on React js ",
     authority: "Udemy",
     date: "Jul 2025",
-    image: 'http://localhost:5173/images/udemy.png',
+    image: udemyLogo,
     link: "https://www.udemy.com/certificate/UC-0eedc2e0-1ac9-4fed-b894-1d7043dcb537/",
     description: "Comprehensive React.js course covering hooks, state management, and building interactive UIs.",
   },
@@ -26,7 +28,7 @@ const CERTIFICATES = [
     title: "Java Fullstack Developer",
     authority: "Skyllx Software Training Institute",
     date: "Jan 2025",
-    image: 'http://localhost:5173/images/skyllx.jpeg',
+    image: skyllxLogo,
     link: "#",
     description: "Intensive training program on full-stack Java development, including Spring Boot, React.js, Docker and MySQL.",
   },

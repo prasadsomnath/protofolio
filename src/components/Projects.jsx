@@ -1,5 +1,28 @@
 import React, { useState, useMemo, useRef, useEffect } from 'react';
 import ProjectModal from './ProjectModal';
+import portofolioImage from '../assets/images/protofolio.jpeg';
+import mobileImage from '../assets/images/mobileportfolio1.jpeg';
+import mobileImage1 from '../assets/images/porto.jpeg';
+import lmsdashboard from '../assets/images/lms_project/lms_dashboard.jpeg';
+import lmsdashboard1 from '../assets/images/lms_project/lms_dashboard1.jpeg';
+import lmsdashboard2 from '../assets/images/lms_project/admin.png';
+import lmsdashboard3 from '../assets/images/lms_project/superadmin.png';
+import jobportalImage from '../assets/images/jobportal/dashboard.jpeg';
+import jobportalImage1 from '../assets/images/jobportal/addjobs.jpeg';  
+import jobportalImage2 from '../assets/images/jobportal/searchjob.jpeg';
+import jobportalImage3 from '../assets/images/jobportal/validation.jpeg';
+import hotel from '../assets/images/hotel/firstImage (1).jpeg';
+import hotel1 from '../assets/images/hotel/secondImage.jpeg'; 
+import hotel2 from '../assets/images/hotel/thirdImage.jpeg';
+import guessor from '../assets/images/guessor/two-winner.jpeg'; 
+import guessor1 from '../assets/images/guessor/one-player-winner.jpeg';
+import guessor2 from '../assets/images/guessor/no-winner.jpeg';
+import flight from '../assets/images/flight/booking_screenshot.jpeg';
+import flight1 from '../assets/images/flight/cancel_booking_screenshot.jpeg'; 
+import flight2 from '../assets/images/flight/serching_flight_screenshot.jpeg';
+import flight3 from '../assets/images/flight/user_resgister_screenshot.jpeg';
+
+
 
 const SAMPLE_PROJECTS = [
   {
@@ -10,12 +33,12 @@ const SAMPLE_PROJECTS = [
     fullDesc:
       'A responsive portfolio including animations, dark mode toggle, contact form, and project filtering.',
     techTags: ['React js', 'Tailwind', 'Framer Motion', 'JavaScript', 'HTML', 'CSS'],
-    images: [
-      'http://localhost:5173/images/protofolio.jpeg',
-      
+    images: [portofolioImage,
+      mobileImage,
+      mobileImage1,
     ],
     liveLink: '#',
-    repoLink: 'https://github.com/REPLACE_ME/portfolio',
+    repoLink: 'https://github.com/prasadsomnath/protofolio',
     features: [
       'Dark / light theme toggle',
       'Animated hero section',
@@ -35,8 +58,10 @@ const SAMPLE_PROJECTS = [
       'This is a microservices-based LMS architecture where the React frontend communicates through an API Gateway to services like Auth, Course, Enrollment, Payment, Exam, and Certificate.MySQL stores the data, Kafka handles event-driven workflows (e.g., payment triggers enrollment), and Promtail + Loki + Grafana provide centralized logging and monitoring.',
     techTags: ['React', 'JavaScript', 'Spring Boot', 'Kafka', 'Docker', 'Aws (ec2)', 'API Gateway', 'Jenkins', 'JUnit', 'Restful APIs', 'spring Security'],
     images: [
-      'http://localhost:5173/images/lms_project/lms_dashboard.jpeg',
-      'http://localhost:5173/images/lms_project/lms_dashboard1.jpeg',
+      lmsdashboard,
+      lmsdashboard1,
+      lmsdashboard2,
+      lmsdashboard3,
     ],
     liveLink: '#',
     repoLink: '#',
@@ -61,10 +86,10 @@ const SAMPLE_PROJECTS = [
       'The Job Portal System is a full-stack web application designed to streamline the job search and recruitment process. It enables users to post, search, delete and manage job listings efficiently. The frontend is built with React.js, while the backend is developed using Spring Boot with RESTful APIs.',
     techTags: ['React', 'JavaScript', 'Spring Boot', 'MySQL', 'Restful APIs', 'Jsp', 'spring MVC', 'hibernate'],
     images: [
-      'http://localhost:5173/images/jobportal/dashboard.jpeg',
-      'http://localhost:5173/images/jobportal/addjobs.jpeg',
-      'http://localhost:5173/images/jobportal/searchjob.jpeg',
-      'http://localhost:5173/images/jobportal/validation.jpeg',
+      jobportalImage,
+      jobportalImage1,
+      jobportalImage2,
+      jobportalImage3,
     ],
     liveLink: '#',
     repoLink: 'https://github.com/prasadsomnath/Job-Portal-Application-',
@@ -78,10 +103,10 @@ const SAMPLE_PROJECTS = [
       'The Flight Management System is a Java-based application that allows users to register, searching for flights, booking of tickets, cancel bookings, and view their reservations. It uses JDBC to connect to a MySQL database, managing all flight and user data efficiently.',
     techTags: ['jdbc', 'java', 'MySQL', 'oops', 'collections'],
     images: [
-      'http://localhost:5173/images/flight/booking_screenshot.jpeg',
-      'http://localhost:5173/images/flight/cancel_booking_screenshot.jpeg',
-      'http://localhost:5173/images/flight/serching_flight_screenshot.jpeg', 
-      'http://localhost:5173/images/flight/user_resgister_screenshot.jpeg',
+      flight,
+      flight1,
+      flight2,
+      flight3,
       
     ],
     liveLink: '#',
@@ -95,9 +120,10 @@ const SAMPLE_PROJECTS = [
     fullDesc:
       'This is a simple Java-based Hotel Billing System project developed using core Java concepts. The system simulates a hotel ordering system where the user can view the menu, place orders, and get the final bill summary',
     techTags: ['Jdbc', ' core Java', 'MySQL','oops', 'collections'],
-    images: ['http://localhost:5173/images/hotel/firstImage (1).jpeg', 
-    'http://localhost:5173/images/hotel/secondImage.jpeg',
-    'http://localhost:5173/images/hotel/thirdImage.jpeg',
+    images: [
+      hotel,
+      hotel1,
+      hotel2,
     ],
     liveLink: '#',
     repoLink: 'https://github.com/prasadsomnath/HotelBillingSystem',
@@ -110,9 +136,11 @@ const SAMPLE_PROJECTS = [
     fullDesc:
       'The Guessor Game is a simple console-based number guessing game developed using Java. It demonstrates the use of Object-Oriented Programming (OOP) principles such as classes, objects, and encapsulation. The game is moderated by an Umpire class, which compares the guessed values and declares the result.',
     techTags: ['core java', 'oops', 'collections'],
-    images: ['http://localhost:5173/images/guessor/two-winner.jpeg', 
-      'http://localhost:5173/images/guessor/one-player-winner.jpeg',
-      'http://localhost:5173/images/guessor/no-winner.jpeg',],
+    images: [
+      guessor,
+      guessor1,
+      guessor2,
+    ],
     liveLink: '#',
     repoLink: 'https://github.com/prasadsomnath/GuessorGameProject',
     features: [' Two-player mode', 'Random number generation', 'Guessing logic with feedback'],
@@ -224,24 +252,7 @@ export default function Projects() {
 
       {/* Projects horizontal scroll */}
       <div className="relative">
-        {/* Left Arrow */}
-        <button
-          className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-primary text-white rounded-full p-2 shadow hover:bg-secondary"
-          onClick={() => scroll('left')}
-          aria-label="Scroll left"
-          style={{ display: 'block' }}
-        >
-          &lt;
-        </button>
-        {/* Right Arrow */}
-        <button
-          className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-primary text-white rounded-full p-2 shadow hover:bg-secondary"
-          onClick={() => scroll('right')}
-          aria-label="Scroll right"
-          style={{ display: 'block' }}
-        >
-          &gt;
-        </button>
+
         <div
           ref={scrollRef}
           className="flex flex-row gap-8 overflow-x-auto pb-4 hide-scrollbar"

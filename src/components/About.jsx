@@ -8,15 +8,20 @@ const TECH_STACK = [
   'Microservices',
   'Docker',
   'JavaScript',
-  'html/css',
-  'React',
+  'html5/css3',
+  'React js',
   'Apache Kafka',
   'MySQL',
   'Git',
+  'GitHub',
+  'postman',
+  'hibernate',
+  'aws(ec2)',
+  'ELK Stack',
   'Jenkins',
   'JUnit',
-
-
+  'Maven',
+  'Agile/Scrum',
 ];
 
 export default function About() {

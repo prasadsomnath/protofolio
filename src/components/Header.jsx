@@ -18,7 +18,7 @@ export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [showResumeOptions, setShowResumeOptions] = useState(false);
 
-  const resumeUrl = '/Resume.pdf';
+  const resumeUrl = '/Resume.pdf'; // TODO: Replace with correct resume path
 
   useEffect(() => {
     const onScroll = () => {
@@ -41,7 +41,10 @@ export default function Header() {
   useEffect(() => {
     if (!showResumeOptions) return;
     const handleClick = (e) => {
-      if (!e.target.closest('.resume-options-trigger') && !e.target.closest('.resume-options-popup')) {
+      if (
+        !e.target.closest('.resume-options-trigger') &&
+        !e.target.closest('.resume-options-popup')
+      ) {
         setShowResumeOptions(false);
       }
     };
@@ -82,20 +85,30 @@ export default function Header() {
                 </a>
               </li>
             ))}
+
             <li className="relative">
               <button
                 className="resume-options-trigger px-4 py-2 bg-primary text-white rounded hover:bg-secondary focus:outline-none focus:ring-2 focus:ring-primary"
                 onClick={() => setShowResumeOptions((prev) => !prev)}
+                aria-haspopup="true"
+                aria-expanded={showResumeOptions}
+                aria-controls="resume-options-popup"
               >
                 Resume
               </button>
               {showResumeOptions && (
-                <div className="resume-options-popup absolute right-0 mt-2 bg-white dark:bg-gray-800 shadow-lg rounded p-4 z-10 flex flex-col gap-2 min-w-[160px]">
+                <div
+                  id="resume-options-popup"
+                  className="resume-options-popup absolute right-0 mt-2 bg-white dark:bg-gray-800 shadow-lg rounded p-4 z-10 flex flex-col gap-2 min-w-[160px]"
+                  role="menu"
+                  aria-label="Resume options"
+                >
                   <a
                     href={resumeUrl}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 text-center"
+                    role="menuitem"
                   >
                     View Resume
                   </a>
@@ -103,6 +116,7 @@ export default function Header() {
                     href={resumeUrl}
                     download
                     className="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600 text-center"
+                    role="menuitem"
                   >
                     Download Resume
                   </a>
@@ -124,7 +138,7 @@ export default function Header() {
 
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="md:hidden text-3xl focus:outline-none focus:ring-2 focus:ring-primary rounded p-1"
+             className="md:hidden text-3xl text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary rounded p-1 transition-colors"
               aria-label="Toggle mobile menu"
               aria-expanded={mobileMenuOpen ? 'true' : 'false'}
             >
@@ -141,7 +155,7 @@ export default function Header() {
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.25 }}
-              className="md:hidden bg-white dark:bg-darkBg text-center space-y-4 p-4 pb-6 text-lg shadow-lg"
+              className="md:hidden bg-white dark:bg-darkBg text-gray-900 dark:text-white text-center space-y-4 p-4 pb-6 text-lg shadow-lg"
               role="menu"
               aria-label="Mobile navigation"
             >
@@ -160,16 +174,25 @@ export default function Header() {
                 <button
                   className="resume-options-trigger px-4 py-2 bg-primary text-white rounded hover:bg-secondary focus:outline-none focus:ring-2 focus:ring-primary w-full"
                   onClick={() => setShowResumeOptions((prev) => !prev)}
+                  aria-haspopup="true"
+                  aria-expanded={showResumeOptions}
+                  aria-controls="resume-options-popup-mobile"
                 >
                   Resume
                 </button>
                 {showResumeOptions && (
-                  <div className="resume-options-popup mt-2 bg-white dark:bg-gray-800 shadow-lg rounded p-4 z-10 flex flex-col gap-2 min-w-[160px]">
+                  <div
+                    id="resume-options-popup-mobile"
+                    className="resume-options-popup mt-2 bg-white dark:bg-gray-800 shadow-lg rounded p-4 z-10 flex flex-col gap-2 min-w-[160px]"
+                    role="menu"
+                    aria-label="Resume options"
+                  >
                     <a
                       href={resumeUrl}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 text-center"
+                      role="menuitem"
                     >
                       View Resume
                     </a>
@@ -177,6 +200,7 @@ export default function Header() {
                       href={resumeUrl}
                       download
                       className="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600 text-center"
+                      role="menuitem"
                     >
                       Download Resume
                     </a>
@@ -187,6 +211,7 @@ export default function Header() {
           )}
         </AnimatePresence>
       </motion.header>
+
       {/* Spacer so content doesn't jump under sticky header */}
       <div className="h-16 md:h-20" />
     </>
